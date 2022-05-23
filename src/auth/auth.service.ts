@@ -16,7 +16,7 @@ export class AuthService {
     pass: string,
   ): Promise<UserJWTPayload | null> {
     const user = await this.usersService.findByEmail(email);
-    if (user && bcrypt.compare(pass, user.password)) {
+    if (user && (await bcrypt.compare(pass, user.password))) {
       const { password, ...result } = user;
       return result;
     }
