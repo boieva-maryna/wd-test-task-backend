@@ -21,7 +21,7 @@ export class SearchPokemonsDto {
   name?: string;
 
   @IsOptional()
-  @IsIn(['name', 'weight', 'heiht'])
+  @IsIn(['name', 'weight', 'height'])
   orderBy?: string;
 
   @IsOptional()
