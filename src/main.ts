@@ -21,6 +21,8 @@ async function bootstrap() {
   const reflector = app.get(Reflector);
   app.useGlobalGuards(new JwtAuthGuard(reflector));
 
+  app.enableCors({ origin: '*' });
+
   await app.listen(process.env.SERVER_PORT);
 }
 bootstrap();
